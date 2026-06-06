@@ -9,7 +9,7 @@ interface DynamicIconProps extends LucideProps {
 
 export function DynamicIcon({ name, ...props }: DynamicIconProps) {
   // fall back to BookOpen if icon name isn't found
-  const IconComponent = (Icons as Record<string, React.ComponentType<LucideProps>>)[name];
+  const IconComponent = (Icons as unknown as Record<string, React.ComponentType<LucideProps>>)[name];
   if (!IconComponent) return <Icons.BookOpen {...props} />;
   return <IconComponent {...props} />;
 }
