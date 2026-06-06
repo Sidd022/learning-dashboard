@@ -1,4 +1,5 @@
-import { getCourses } from "@/lib/supabase";
+// ✅ Correct
+import { getCourses } from "@/lib/queries";
 import { MOCK_COURSES } from "@/lib/mock-data";
 import { CourseCard } from "./CourseCard";
 import { CourseGridWrapper } from "./CourseGridWrapper";
