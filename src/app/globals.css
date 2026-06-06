@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── fonts ─────────────────────────────────────────────────── */
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ─── color tokens ───────────────────────────────────────────── */
+:root {
+  /* backgrounds */
+  --color-bg-base: #090e18;
+  --color-bg-subtle: #0d1524;
+  --color-bg-elevated: #111e30;
+  --color-bg-muted: #162035;
+  --color-bg-overlay: #1a2640;
+
+  /* borders */
+  --color-border-subtle: rgba(255, 255, 255, 0.07);
+  --color-border-strong: rgba(255, 255, 255, 0.13);
+
+  /* accent */
+  --color-accent-cyan: #00d4ff;
+  --color-accent-violet: #8b5cf6;
+}
+
+/* ─── tailwind mappings ──────────────────────────────────────── */
+@theme inline {
+  --color-bg-base: var(--color-bg-base);
+  --color-bg-subtle: var(--color-bg-subtle);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-bg-overlay: var(--color-bg-overlay);
+  --color-border-subtle: var(--color-border-subtle);
+  --color-border-strong: var(--color-border-strong);
+}
+
+/* ─── base ───────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--color-bg-base);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* hide scrollbar but keep scroll */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── skeleton shimmer ───────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-muted) 25%,
+    var(--color-bg-overlay) 50%,
+    var(--color-bg-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
